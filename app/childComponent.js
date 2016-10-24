@@ -9,23 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var myCustom_pipe_1 = require('./myCustom.pipe');
-var childComponent_1 = require('./childComponent');
-var AppModule = (function () {
-    function AppModule() {
+var ChildComponent = (function () {
+    function ChildComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, myCustom_pipe_1.AngularTrendPipe, childComponent_1.ChildComponent],
-            bootstrap: [app_component_1.AppComponent]
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], ChildComponent.prototype, "title", void 0);
+    ChildComponent = __decorate([
+        core_1.Component({
+            selector: 'child-component',
+            template: "Hello - this is out child component\n  this is input property {{title}}"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], ChildComponent);
+    return ChildComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.ChildComponent = ChildComponent;
+//# sourceMappingURL=childComponent.js.map

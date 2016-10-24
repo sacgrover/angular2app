@@ -9,23 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var myCustom_pipe_1 = require('./myCustom.pipe');
-var childComponent_1 = require('./childComponent');
-var AppModule = (function () {
-    function AppModule() {
+var AngularTrendPipe = (function () {
+    function AngularTrendPipe() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, myCustom_pipe_1.AngularTrendPipe, childComponent_1.ChildComponent],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
+    AngularTrendPipe.prototype.transform = function (allTrends) {
+        return allTrends.filter(function (trend) { return trend.name.indexOf('ng') > -1; });
+    };
+    AngularTrendPipe = __decorate([
+        core_1.Pipe({ name: 'angularTrend' }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], AngularTrendPipe);
+    return AngularTrendPipe;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.AngularTrendPipe = AngularTrendPipe;
+//# sourceMappingURL=myCustom.pipe.js.map

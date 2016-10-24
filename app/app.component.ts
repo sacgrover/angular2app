@@ -1,21 +1,43 @@
-import { Component,OnInit } from '@angular/core';
-import {TrendService} from './trend/trend.service';
+import { Component,OnInit,Input } from '@angular/core';
+import {AppComponentService} from './appComponent.service'
 import {Trend} from './trend/trend'
+import {ChildComponent} from './childComponent'
 
 @Component({
   selector: 'my-app',
-  template: `    <ul>
-      <li *ngFor="let trend of trendList">
-        {{trend.caption}}
-      </li>
-    </ul>`,
-  providers:[TrendService]
-})
-export class AppComponent implements OnInit {
-  trendList:Trend[];
+  template: `Helloo Everyone...!!!
+<br/>
+<span>message -----   {{message}}</span>
+<br/>
+<span>{{title}}</span>
+<span>{{date|date:'fullDate'}}</span>
+<ul>
+<li *ngFor="let trend of trends | angularTrend">
+{{trend.name}}
+</li>
+</ul>
 
-  constructor(private _trendService:TrendService){}
-  ngOnInit(){
-    this._trendService.getTrends().then(trends=> this.trendList=trends)
-  }
+
+<child-component [title]="message"></child-component>
+  `,
+  directives:[ChildComponent]
+  providers:[AppComponentService]
+})
+export class AppComponent {
+message:string;
+title:string;
+date:Date;
+trends:Trend[];
+person:any={name:"Komal Jain"};
+
+changeData($event:any){
+this.message=$event.target.value;
+}
+
+constructor(private _AppComponentService:AppComponentService){
+this.message=this._AppComponentService.welcomeMessage;
+this.title=this._AppComponentService.title;
+this.date=this._AppComponentService.currentTime;
+this.trends=_AppComponentService.getMockedTrends();
+}
 }
