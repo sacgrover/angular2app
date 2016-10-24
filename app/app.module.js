@@ -13,13 +13,13 @@ var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var myCustom_pipe_1 = require('./myCustom.pipe');
 var childComponent_1 = require('./childComponent');
+var forms_1 = require('@angular/forms');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
             declarations: [app_component_1.AppComponent, myCustom_pipe_1.AngularTrendPipe, childComponent_1.ChildComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 

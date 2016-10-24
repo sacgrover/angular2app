@@ -10,28 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var appComponent_service_1 = require('./appComponent.service');
-var childComponent_1 = require('./childComponent');
 var AppComponent = (function () {
     function AppComponent(_AppComponentService) {
         this._AppComponentService = _AppComponentService;
-        this.object = { name: "Komal Jain" };
-        this.message = this._AppComponentService.welcomeMessage;
-        this.title = this._AppComponentService.title;
-        this.date = this._AppComponentService.currentTime;
-        this.trends = _AppComponentService.getMockedTrends();
+        this.person = { name: 'Komal Jain' };
+        console.log("constructing your component....");
     }
     AppComponent.prototype.changeData = function ($event) {
         this.message = $event.target.value;
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], AppComponent.prototype, "message", void 0);
+    AppComponent.prototype.ngOnInit = function () {
+        console.log("Initializing your component....");
+        this.message = this._AppComponentService.welcomeMessage;
+        this.title = this._AppComponentService.title;
+        this.date = this._AppComponentService.currentTime;
+        this.trends = this._AppComponentService.getMockedTrends();
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "Helloo Everyone...!!!\n<br/>\n<span>message -----   {{message}}</span>\n<br/>\n<span>{{title}}</span>\n<span>{{date}}</span>\n<ul>\n<li *ngFor=\"let trend of trends | angularTrend\">\n{{trend.name}}\n</li>\n</ul>\n\n<input [(ngModel)]=\"object.name\" />\n\n<child-component [title]=\"message\"></child-component>\n  ",
-            directives: [childComponent_1.ChildComponent],
+            template: "Helloo Everyone...!!!\n<br/>\n<span>message -----   {{message}}</span>\n<br/>\n<span>{{title}}</span>\n<span>{{date|date:'fullDate'}}</span>\n<ul>\n<li *ngFor=\"let trend of trends | angularTrend:'act'\">\n{{trend.name}}\n</li>\n</ul>\n<input [(ngModel)]=\"person.name\"/>\n{{person.name}}\n<child-component [title]=\"message\"></child-component>\n  ",
             providers: [appComponent_service_1.AppComponentService]
         }), 
         __metadata('design:paramtypes', [appComponent_service_1.AppComponentService])
