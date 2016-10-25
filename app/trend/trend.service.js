@@ -24,6 +24,12 @@ var TrendService = (function () {
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);
     };
+    TrendService.prototype.getTrend = function (id) {
+        var trend = this.getTrends()
+            .then(function (trends) { return trends.find(function (trend) { return trend.id === id; }); });
+        console.log(trend);
+        return trend;
+    };
     TrendService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message

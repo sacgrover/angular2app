@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var trend_1 = require('./trend/trend');
 var AppComponentService = (function () {
     function AppComponentService() {
         this.welcomeMessage = "Welcome to angular session !!";
@@ -17,12 +16,7 @@ var AppComponentService = (function () {
         this.currentTime = new Date();
     }
     AppComponentService.prototype.getMockedTrends = function () {
-        return [
-            new trend_1.Trend({ name: "ng2", caption: "Hey wassup angular2 evanglist !!", likes: 0, createdBy: "Komal Jain" }),
-            new trend_1.Trend({ name: 'mongodb', caption: "Hey wassup mongodb evanglist !!", likes: 0, createdBy: "Komal Jain" }),
-            new trend_1.Trend({ name: 'angularJS', caption: "Hey wassup NAular evanglist !!", likes: 0, createdBy: "Komal Jain" }),
-            new trend_1.Trend({ name: 'React', caption: "Hey wassup react evanglist !!", likes: 0, createdBy: "Komal Jain" })
-        ];
+        return [];
     };
     AppComponentService = __decorate([
         core_1.Injectable(), 

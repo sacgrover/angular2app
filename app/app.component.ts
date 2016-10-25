@@ -1,24 +1,18 @@
 import { Component,OnInit,Input } from '@angular/core';
 import {AppComponentService} from './appComponent.service'
 import {Trend} from './trend/trend'
-import {ChildComponent} from './childComponent'
 
 @Component({
   selector: 'my-app',
-  template: `Helloo Everyone...!!!
-<br/>
-<span>message -----   {{message}}</span>
-<br/>
-<span>{{title}}</span>
-<span>{{date|date:'fullDate'}}</span>
-<ul>
-<li *ngFor="let trend of trends | angularTrend:'act'">
-{{trend.name}}
-</li>
-</ul>
-<input [(ngModel)]="person.name"/>
-{{person.name}}
-<child-component [title]="message"></child-component>
+  template: `
+<div>
+<h1>Whats in your mind today ????</h1>
+<div>
+<a routerLink="/trendList" routerLinkActive="active">Trends</a>
+<a routerLink="/trend" routerLinkActive="active">trend Detail</a>
+  <router-outlet></router-outlet>
+</div>
+</div>
   `,
   providers:[AppComponentService]
 })

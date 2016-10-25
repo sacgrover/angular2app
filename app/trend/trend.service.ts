@@ -22,6 +22,13 @@ private trendsUrl = 'app/trends';  // URL to web api
               .catch(this.handleError);
  }
 
+ getTrend(id: number): Promise<Trend> {
+  let trend= this.getTrends()
+             .then(trends =>trends.find(trend => trend.id === id));
+             console.log(trend);
+             return trend;
+}
+
 
 
  private handleError (error: any) {

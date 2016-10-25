@@ -29,7 +29,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "Helloo Everyone...!!!\n<br/>\n<span>message -----   {{message}}</span>\n<br/>\n<span>{{title}}</span>\n<span>{{date|date:'fullDate'}}</span>\n<ul>\n<li *ngFor=\"let trend of trends | angularTrend:'act'\">\n{{trend.name}}\n</li>\n</ul>\n<input [(ngModel)]=\"person.name\"/>\n{{person.name}}\n<child-component [title]=\"message\"></child-component>\n  ",
+            template: "\n<div>\n<h1>Whats in your mind today ????</h1>\n<div>\n<a routerLink=\"/trendList\" routerLinkActive=\"active\">Trends</a>\n<a routerLink=\"/trend\" routerLinkActive=\"active\">trend Detail</a>\n  <router-outlet></router-outlet>\n</div>\n</div>\n  ",
             providers: [appComponent_service_1.AppComponentService]
         }), 
         __metadata('design:paramtypes', [appComponent_service_1.AppComponentService])

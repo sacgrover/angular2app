@@ -12,15 +12,34 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var myCustom_pipe_1 = require('./myCustom.pipe');
-var childComponent_1 = require('./childComponent');
+var trendListComponent_1 = require('./trendListComponent');
+var TrendDetailComponent_1 = require('./TrendDetailComponent');
 var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
+var http_1 = require('@angular/http');
+var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
+var in_memory_trend_data_service_1 = require('./trend/in-memory-trend-data.service');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, myCustom_pipe_1.AngularTrendPipe, childComponent_1.ChildComponent],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule,
+                router_1.RouterModule.forRoot([
+                    {
+                        path: '',
+                        redirectTo: '/trendList',
+                        pathMatch: 'full'
+                    },
+                    { path: 'trendList', component: trendListComponent_1.TrendListComponent },
+                    { path: 'trend', component: TrendDetailComponent_1.TrendDetailComponent },
+                    { path: 'trend/:id', component: TrendDetailComponent_1.TrendDetailComponent }
+                ]),
+                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_trend_data_service_1.InMemoryDataService),
+            ],
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
+            declarations: [app_component_1.AppComponent, myCustom_pipe_1.AngularTrendPipe, trendListComponent_1.TrendListComponent, TrendDetailComponent_1.TrendDetailComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

@@ -14,12 +14,12 @@ var ChildComponent = (function () {
     }
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', String)
-    ], ChildComponent.prototype, "title", void 0);
+        __metadata('design:type', Array)
+    ], ChildComponent.prototype, "trends", void 0);
     ChildComponent = __decorate([
         core_1.Component({
             selector: 'child-component',
-            template: "Hello - this is out child component\n  this is input property {{title}}"
+            template: "<div>Trends</div>\n  <ul>\n  <li *ngFor=\"let trend of trends | angularTrend:'act'\">\n  {{trend.name}}\n  </li>\n  </ul>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], ChildComponent);
