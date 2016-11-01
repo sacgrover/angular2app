@@ -6,10 +6,8 @@ import {Trend} from './trend/trend'
   selector: 'my-app',
   template: `
 <div>
-<h1>Whats in your mind today ????</h1>
+<h2>Trend Dashboard</h2>
 <div>
-<a routerLink="/trendList" routerLinkActive="active">Trends</a>
-<a routerLink="/trend" routerLinkActive="active">trend Detail</a>
   <router-outlet></router-outlet>
 </div>
 </div>

@@ -12,8 +12,11 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var myCustom_pipe_1 = require('./myCustom.pipe');
+var tag_pipe_1 = require('./tag.pipe');
+var myDate_pipe_1 = require('./myDate.pipe');
 var trendListComponent_1 = require('./trendListComponent');
 var TrendDetailComponent_1 = require('./TrendDetailComponent');
+var AddTrendComponent_1 = require('./AddTrendComponent');
 var forms_1 = require('@angular/forms');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
@@ -33,13 +36,14 @@ var AppModule = (function () {
                         pathMatch: 'full'
                     },
                     { path: 'trendList', component: trendListComponent_1.TrendListComponent },
+                    { path: 'addTrend', component: AddTrendComponent_1.AddTrendComponent },
                     { path: 'trend', component: TrendDetailComponent_1.TrendDetailComponent },
                     { path: 'trend/:id', component: TrendDetailComponent_1.TrendDetailComponent }
                 ]),
                 angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_trend_data_service_1.InMemoryDataService),
             ],
             providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
-            declarations: [app_component_1.AppComponent, myCustom_pipe_1.AngularTrendPipe, trendListComponent_1.TrendListComponent, TrendDetailComponent_1.TrendDetailComponent],
+            declarations: [app_component_1.AppComponent, myCustom_pipe_1.AngularTrendPipe, trendListComponent_1.TrendListComponent, TrendDetailComponent_1.TrendDetailComponent, myDate_pipe_1.DateTrendPipe, AddTrendComponent_1.AddTrendComponent, tag_pipe_1.TagTrendPipe],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

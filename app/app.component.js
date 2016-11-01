@@ -29,7 +29,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n<div>\n<h1>Whats in your mind today ????</h1>\n<div>\n<a routerLink=\"/trendList\" routerLinkActive=\"active\">Trends</a>\n<a routerLink=\"/trend\" routerLinkActive=\"active\">trend Detail</a>\n  <router-outlet></router-outlet>\n</div>\n</div>\n  ",
+            template: "\n<div>\n<h2>Trend Dashboard</h2>\n<div>\n  <router-outlet></router-outlet>\n</div>\n</div>\n  ",
             providers: [appComponent_service_1.AppComponentService]
         }), 
         __metadata('design:paramtypes', [appComponent_service_1.AppComponentService])

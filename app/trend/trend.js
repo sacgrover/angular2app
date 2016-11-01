@@ -4,9 +4,9 @@ var Trend = (function () {
         this.id = trend.id;
         this.name = trend.name;
         this.caption = trend.caption;
-        this.likes = 0;
+        this.likes = trend.likes;
         this.createdBy = trend.createdBy;
-        this.dateCreated = new Date();
+        this.dateCreated = trend.dateCreated;
     }
     return Trend;
 }());

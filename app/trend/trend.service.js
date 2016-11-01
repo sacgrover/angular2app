@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var trend_1 = require('./trend');
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
@@ -17,6 +16,7 @@ var TrendService = (function () {
     function TrendService(http) {
         this.http = http;
         this.trendsUrl = 'app/trends'; // URL to web api
+        this.trendUrl = 'app/trend'; // URL to web api
     }
     TrendService.prototype.getTrends = function () {
         return this.http.get(this.trendsUrl)
@@ -25,10 +25,22 @@ var TrendService = (function () {
             .catch(this.handleError);
     };
     TrendService.prototype.getTrend = function (id) {
-        var trend = this.getTrends()
-            .then(function (trends) { return trends.find(function (trend) { return trend.id === id; }); });
-        console.log(trend);
-        return trend;
+        return this.http.get(this.trendsUrl + "/" + id)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    TrendService.prototype.deleteTrend = function (id) {
+        return this.http.delete(this.trendsUrl + "/" + id)
+            .toPromise()
+            .then()
+            .catch(this.handleError);
+    };
+    TrendService.prototype.likeTrend = function (trend) {
+        return this.http.put(this.trendsUrl + "/" + trend.id, trend)
+            .toPromise()
+            .then()
+            .catch(this.handleError);
     };
     TrendService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
@@ -38,9 +50,13 @@ var TrendService = (function () {
         console.error(errMsg); // log to console instead
         return Observable_1.Observable.throw(errMsg);
     };
-    TrendService.prototype.createTrend = function (json) {
-        return new trend_1.Trend(json);
+    TrendService.prototype.createTrend = function (trend) {
+        return this.http.post(this.trendsUrl, trend)
+            .toPromise()
+            .then()
+            .catch(this.handleError);
     };
+    TrendService.newId = 5;
     TrendService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

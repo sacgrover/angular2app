@@ -2,47 +2,46 @@
 <html>
   <head>
     <base href="/">
-    <title>Angular2</title>
-    <!-- <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="es6-shim/es6-shim.min.js"></script>
-    <script src="systemjs/dist/system-polyfills.js"></script>
-    <script src="angular2/es6/dev/src/testing/shims_for_IE.js"></script>
-    <script src="systemjs/dist/system.src.js"></script>
-    <script src="angular2/bundles/angular2-polyfills.js"></script>
-
-    <script src="rxjs/bundles/Rx.js"></script>
-    <script src="angular2/bundles/angular2.dev.js"></script>
-    <script src="angular2/bundles/router.dev.js"></script>
-
-    <script src="systemjs.config.js"></script>
-    <script>
-        System.config({
-            packages: {
-                app: {
-                    format: 'register',
-                    defaultExtension: 'js'
-                }
-            }
-        });
-        System.import('app/main').then(null, console.error.bind(console));
-    </script> -->
+    <title>Trend App</title>
 
     <script src="./node_modules/core-js/client/shim.min.js"></script>
    <script src="./node_modules/zone.js/dist/zone.js"></script>
    <script src="./node_modules/reflect-metadata/Reflect.js"></script>
    <script src="./node_modules/systemjs/dist/system.src.js"></script>
    <script src="./node_modules/rxjs/bundles/Rx.js"></script>
-   <!-- <script src="./" -->
-   <!-- 2. Configure SystemJS -->
    <script src="./systemjs.config.js"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <script>
      System.import('/app/main.js').catch(function(err){ console.error(err); });
    </script>
+<style type="text/css" >
+    .tag-primary {
+        background-color: #0275d8;
+    }
+    .tag {
+        border-radius: 4.25rem;
+        color: #fff;
+        display: inline-block;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        margin: 5px;
+        padding: 1em;
+        text-align: center;
+        vertical-align: baseline;
+        white-space: nowrap;
+    }
 
+</style>
   </head>
-  <body>
-    <h1></h1>
+  <body class="container myapp">
+    <h1>
     <p>Welcome to Angular2 Application</p>
+    </h1>
     <my-app></my-app>
   </body>
 </html>

@@ -4,8 +4,8 @@ import { Trend } from './trend/trend';
 
 @Pipe({ name: 'angularTrend' })
 export class AngularTrendPipe implements PipeTransform {
-  transform(allTrends: Trend[],filterOption:string) {
-  console.log(filterOption)
-    return allTrends.filter(trend =>{return trend.name.indexOf(filterOption)>-1});
-  }
+    transform(value: any, args: any) {
+        let filter = args.toLocaleLowerCase();
+        return filter ? value.filter(tech=> tech.name.toLocaleLowerCase().indexOf(filter) != -1) : value;
+    }
 }

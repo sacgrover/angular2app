@@ -12,9 +12,9 @@ var core_1 = require('@angular/core');
 var AngularTrendPipe = (function () {
     function AngularTrendPipe() {
     }
-    AngularTrendPipe.prototype.transform = function (allTrends, filterOption) {
-        console.log(filterOption);
-        return allTrends.filter(function (trend) { return trend.name.indexOf(filterOption) > -1; });
+    AngularTrendPipe.prototype.transform = function (value, args) {
+        var filter = args.toLocaleLowerCase();
+        return filter ? value.filter(function (tech) { return tech.name.toLocaleLowerCase().indexOf(filter) != -1; }) : value;
     };
     AngularTrendPipe = __decorate([
         core_1.Pipe({ name: 'angularTrend' }), 

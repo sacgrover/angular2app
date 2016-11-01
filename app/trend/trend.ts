@@ -4,6 +4,7 @@ name:string;
 caption:string;
 likes:number;
 createdBy:String;
+dateCreated:Date;
 }
 
 export class Trend{
@@ -14,13 +15,13 @@ likes:number;
 createdBy:String;
 dateCreated:Date;
 
-constructor(trend:TrendConstructor){
+constructor(trend:any){
 this.id=trend.id;
 this.name=trend.name;
 this.caption=trend.caption;
-this.likes=0;
+this.likes=trend.likes;
 this.createdBy=trend.createdBy;
-this.dateCreated=new Date();
+this.dateCreated=trend.dateCreated;
 }
 
 }
