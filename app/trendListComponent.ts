@@ -10,7 +10,7 @@ import { Location }                 from '@angular/common';
   selector: 'trend-list',
   template: `
    <div class="list-group col-md-6"><hr/><div style="clear:both"></div><h4>Popular Trends</h4><input #tags class="form-control"  (keyup)="0" type="hidden" value="10">
-                <span class="tag tag-pill tag-primary" *ngFor="let tag of trends ">{{tag.name}}</span>
+                <span class="tag tag-pill tag-primary" *ngFor="let tag of trends | tagTrend : 'likes'">{{tag.name}}</span>
                 <a routerLink="/addTrend" routerLinkActive="active" class="btn btn-success pull-right" href="javascript:void(0);">Add Trend</a><hr/></div>
 <div class="row"><div style="clear:both"></div><div class="col-md-3">Search By Name:<input  class="form-control"  #name (keyup)="0" placeholder="Name"  type="text"/></div>
 <div class="col-md-3" >Filter By DateCreated:<div class='input-group date' id='datetimepicker1'>
