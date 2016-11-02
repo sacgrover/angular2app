@@ -16,7 +16,7 @@ import { Location } from '@angular/common';
       <div class="col-md-4"><h2> Update Trend </h2>
       <strong>Trend id:</strong> {{myTrend?.id}}<br/>
       <strong>Trend Name:</strong> <input type="text" #name [(ngModel)]="myTrend.name" /><br/>
-      <strong>Trend Caption:</strong>  <textarea  #caption [(ngModel)]="myTrend.caption" rows="4" cols="50">
+      <strong>Trend Caption:</strong>  <textarea style="resize: none;"  #caption [(ngModel)]="myTrend.caption" rows="4" cols="30" >
         </textarea><br/>
       <strong>Trend Likes:</strong> {{myTrend?.likes}}<br/>
       <strong>Trend Created Date:</strong> {{myTrend?.dateCreated|date}}<br/><br/>
