@@ -8,7 +8,8 @@ export class TagTrendPipe implements PipeTransform {
         if (!args[0]) {
             return value;
         } else if (value) {
-            value.sort((a, b) => {
+           let newValue=value.slice();
+            newValue.sort((a, b) => {
                 if (a.likes < b.likes) {
                     return 1;
                     //.completed because we want to sort the list by completed property
@@ -18,7 +19,7 @@ export class TagTrendPipe implements PipeTransform {
                     return 0;
                 }
             });
-            return value.slice(0, 3);
+            return newValue.slice(0, 3);
         }
     }
 }
