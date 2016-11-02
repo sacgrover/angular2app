@@ -5,9 +5,9 @@ import {Trend} from './trend/trend'
 @Component({
   selector: 'my-app',
   template: `
-<div>
-<h2>Trend Dashboard</h2>
-<div>
+<div class="row">
+<h2 style="text-align: center;color: yellowgreen;">Trend Dashboard</h2>
+<div class="col-md-12 col-md-offset-3">
   <router-outlet></router-outlet>
 </div>
 </div>
